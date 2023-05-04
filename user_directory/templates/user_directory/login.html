@@ -1,28 +1,31 @@
-{% extends "user_directory/base.html" %}
+{% extends 'user_directory/base.html' %}
 {% block content %}
-    <main class="form-signin border">
-        <form method="POST" enctype="multipart/form-data" class="inputfield">
-        {% csrf_token %}
-        <h1 class="h3 mb-3 fw-normal" align="center">Please sign in</h1>
-    <div>
-        <div class="col">
-            {{form.username}}
-            <label for="floatingInput">Username</label>
-        </div>
-        <div class="col">
-            {{form.password1}}
-            <label for="floatingPassword">Password</label>
-        </div>
 
-        <div class="checkbox mb-3">
-            <label>
-            <input type="checkbox" value="remember-me"> Remember me
-            </label>
+    <form class="d-xxl-flex bookman_serif" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="login_form col-sm-12 p-4 shadow rounded-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"><h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1></div>
+                </div>
+                <div class="row m-1">
+                    <div class="col-sm-4"><label for="floatingInput">Username</label></div>
+                    <div class="col-sm-8">{{form.username}}</div>
+                </div>
+                <div class="row m-1">
+                    <div class="col-sm-4"><label for="floatingPassword">Password</label></div>
+                    <div class="col-sm-8">{{form.password1}}</div>
+                </div>
+                <div class="row m-1">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8"><button class="w-50 btn btn-outline-dark" type="submit">Sign in</button></div>
+                </div>
+                <div class="row m-1">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8"><p class="text-muted mt-1">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p></div>
+                </div>
+            </div>
         </div>
-        <button class="w-100 btn btn-outline-dark" type="submit">Sign in</button>
-        <p class="text-center text-muted mt-5 mb-0">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p>
-    </div>
-        </form>
-    </main>
+    </form>
 
 {% endblock content %}

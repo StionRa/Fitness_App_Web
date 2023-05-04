@@ -18,7 +18,7 @@ def login_page(request):
         if user is not None:
             form = login(request, user)
             messages.success(request, f' wellcome {username} !!')
-            return redirect('main_page:home')
+            return redirect('home')
         else:
             messages.info(request, f'account done not exit plz sign in')
     form = CreateUserForm()

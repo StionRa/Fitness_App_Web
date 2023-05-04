@@ -1,66 +1,41 @@
-{% extends "user_directory/base.html" %}
-<title>{% block title %}Register{% endblock title%}</title>
+{% extends 'user_directory/base.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
+<form class="d-xxl-flex bookman_serif" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="login_form col-sm-12 p-4 shadow rounded-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1></div>
+            </div>
+             <div class="form-floating mb-1">
+                {{ form.username }}
+                <label for="floatingInput">Username</label>
+             </div>
+                <div class="form-floating mb-1">
+                    {{ form.password1 }}
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form.password2 }}
+                    <label for="floatingInput">Password</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form.email }}
+                    <label for="floatingPassword">E-Mail</label>
+                </div>
 
-    <main class="form-signin border">
-        <form method="POST" enctype="multipart/form-data" class="inputfield">
-        {% csrf_token %}
-        <h1 class="h3 mb-3 fw-normal" align="center">Please sign up</h1>
-    <div>
-        <div class="col">
-            {{form.username}}
-            <label for="floatingInput">Username</label>
+                <div class="row m-1">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8"><button class="w-50 btn btn-outline-dark" type="submit">Sign in</button></div>
+                </div>
+            <div class="row m-1">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8"><p class="text-muted mt-1">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p></div>
+            </div>
         </div>
-        <div class="col">
-            {{ form.email }}
-            <label for="floatingInput">Email</label>
-        </div>
-        <div class="col">
-            {{form.password1}}
-            <label for="floatingPassword">Password</label>
-        </div>
-        <div class="col">
-            {{form.password2}}
-            <label for="floatingPassword">Confirm Password</label>
-        </div>
-        <div class="col">
-            {{form_u.body_weight}}
-            <label for="floatingPassword">Body Weight</label>
-        </div>
-        <div class="col">
-            {{form_u.body_height}}
-            <label for="floatingPassword">Body Height</label>
-        </div>
-        <div class="col">
-            {{form_u.birth_day}}
-            <label for="floatingPassword">Birthday</label>
-        </div>
-        <div class="col">
-            {{form_u.gender}}
-            <label for="floatingPassword">Gender</label>
-        </div>
-        <div class="col">
-            {{form_u.body_type}}
-            <label for="floatingPassword">Body type</label>
-        </div>
-        <div class="col">
-            {{form_u.activity_level}}
-            <label for="floatingPassword">Activity level</label>
-        </div>
-        <div class="col">
-            {{form_u.target_weight}}
-            <label for="floatingPassword">Target weight</label>
-        </div>
-        <div class="col">
-            {{form_u.time_to_goal}}
-            <label for="floatingPassword">Time to goal</label>
-        </div>
-
-        <button class="w-100 btn btn-outline-dark" type="submit">Sign Up</button>
-        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}" class="fw-bold text-body"><u>Sign In here</u></a></p>
     </div>
-        </form>
-    </main>
+</form>
 
 
-{% endblock content%}
+{% endblock content %}
