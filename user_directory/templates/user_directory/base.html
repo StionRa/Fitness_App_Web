@@ -1,0 +1,18 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link href="{% static 'css/main_style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+        {% block content %}
+        {% endblock content%}
+
+
+
+</body>
+{% include 'user_directory/footer_menu.html' %}
+</html>

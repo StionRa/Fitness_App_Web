@@ -1,0 +1,66 @@
+{% extends "user_directory/base.html" %}
+<title>{% block title %}Register{% endblock title%}</title>
+{% block content %}
+
+    <main class="form-signin border">
+        <form method="POST" enctype="multipart/form-data" class="inputfield">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal" align="center">Please sign up</h1>
+    <div>
+        <div class="col">
+            {{form.username}}
+            <label for="floatingInput">Username</label>
+        </div>
+        <div class="col">
+            {{ form.email }}
+            <label for="floatingInput">Email</label>
+        </div>
+        <div class="col">
+            {{form.password1}}
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="col">
+            {{form.password2}}
+            <label for="floatingPassword">Confirm Password</label>
+        </div>
+        <div class="col">
+            {{form_u.body_weight}}
+            <label for="floatingPassword">Body Weight</label>
+        </div>
+        <div class="col">
+            {{form_u.body_height}}
+            <label for="floatingPassword">Body Height</label>
+        </div>
+        <div class="col">
+            {{form_u.birth_day}}
+            <label for="floatingPassword">Birthday</label>
+        </div>
+        <div class="col">
+            {{form_u.gender}}
+            <label for="floatingPassword">Gender</label>
+        </div>
+        <div class="col">
+            {{form_u.body_type}}
+            <label for="floatingPassword">Body type</label>
+        </div>
+        <div class="col">
+            {{form_u.activity_level}}
+            <label for="floatingPassword">Activity level</label>
+        </div>
+        <div class="col">
+            {{form_u.target_weight}}
+            <label for="floatingPassword">Target weight</label>
+        </div>
+        <div class="col">
+            {{form_u.time_to_goal}}
+            <label for="floatingPassword">Time to goal</label>
+        </div>
+
+        <button class="w-100 btn btn-outline-dark" type="submit">Sign Up</button>
+        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}" class="fw-bold text-body"><u>Sign In here</u></a></p>
+    </div>
+        </form>
+    </main>
+
+
+{% endblock content%}
