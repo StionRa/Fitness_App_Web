@@ -3,11 +3,43 @@
 {% load crispy_forms_tags %}
 <form class="d-xxl-flex bookman_serif" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+    {{ form.error_messages }}
+        {{ form.username.errors }}
+        {{ form.non_field_errors }}
+    {% if form.password2.errors %}
+      {{ form.password2.errors }}
+        {% endif %}
+    </div>
+{% endif %}
+
+
     <div class="login_form col-sm-12 p-4 shadow rounded-3">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12"><h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1></div>
             </div>
+
+            <div class="modal fade" id="usernameTakenModal" tabindex="-1" role="dialog" aria-labelledby="usernameTakenModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="usernameTakenModalLabel">Username already taken</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>This username is already taken. Please choose a different username.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
              <div class="form-floating mb-1">
                 {{ form.username }}
                 <label for="floatingInput">Username</label>
@@ -18,24 +50,78 @@
                 </div>
                 <div class="form-floating mb-1">
                     {{ form.password2 }}
-                    <label for="floatingInput">Password</label>
+                    <label for="floatingInput">Confirm Password</label>
                 </div>
                 <div class="form-floating mb-1">
                     {{ form.email }}
                     <label for="floatingPassword">E-Mail</label>
                 </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.birth_day }}
+                    <label for="floatingInput">Birthday</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.gender }}
+                    <label for="floatingInput">Gender</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.body_height }}
+                    <label for="floatingInput">Body height</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.body_weight }}
+                    <label for="floatingInput">Body Weight</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.body_type }}
+                    <label for="floatingInput">Body type</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.activity_level }}
+                    <label for="floatingInput">Activity Level</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.target_weight }}
+                    <label for="floatingInput">Target weight</label>
+                </div>
+                <div class="form-floating mb-1">
+                    {{ form_u.time_to_goal }}
+                    <label for="floatingInput">Time to goal</label>
+                </div>
+
 
                 <div class="row m-1">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-8"><button class="w-50 btn btn-outline-dark" type="submit">Sign in</button></div>
+                    <button class="btn btn-outline-dark" type="submit">Sign in</button>
                 </div>
             <div class="row m-1">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-8"><p class="text-muted mt-1">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p></div>
+                <p class="text-muted mt-1">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p>
             </div>
         </div>
     </div>
 </form>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('#id_username').on('input', function() {
+      var username = $(this).val();
+      $.ajax({
+        url: '/check_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function(data) {
+          if (data.is_taken) {
+            $('#username-feedback').html('<small class="form-text text-danger">This username is already taken. Please choose a different username.</small>');
+            $('#id_username').removeClass('is-valid').addClass('is-invalid');
+          } else {
+            $('#username-feedback').html('<small class="form-text text-success">This username is available.</small>');
+            $('#id_username').removeClass('is-invalid').addClass('is-valid');
+          }
+        }
+      });
+    });
+  });
+</script>
 
 {% endblock content %}
