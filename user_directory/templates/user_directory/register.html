@@ -21,81 +21,73 @@
                 <div class="col-sm-12"><h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1></div>
             </div>
 
-            <div class="modal fade" id="usernameTakenModal" tabindex="-1" role="dialog" aria-labelledby="usernameTakenModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="usernameTakenModalLabel">Username already taken</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>This username is already taken. Please choose a different username.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-             <div class="form-floating mb-1">
-                {{ form.username }}
-                <label for="floatingInput">Username</label>
-             </div>
-                <div class="form-floating mb-1">
-                    {{ form.password1 }}
-                    <label for="floatingPassword">Password</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form.username }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form.password2 }}
-                    <label for="floatingInput">Confirm Password</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form.password1 }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form.email }}
-                    <label for="floatingPassword">E-Mail</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form.password2 }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.birth_day }}
-                    <label for="floatingInput">Birthday</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form.email }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.gender }}
-                    <label for="floatingInput">Gender</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.birth_day }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.body_height }}
-                    <label for="floatingInput">Body height</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.gender }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.body_weight }}
-                    <label for="floatingInput">Body Weight</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.body_height }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.body_type }}
-                    <label for="floatingInput">Body type</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.body_weight }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.activity_level }}
-                    <label for="floatingInput">Activity Level</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.body_type }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.target_weight }}
-                    <label for="floatingInput">Target weight</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.activity_level }}
+                    </div>
                 </div>
-                <div class="form-floating mb-1">
-                    {{ form_u.time_to_goal }}
-                    <label for="floatingInput">Time to goal</label>
+                <div class="form-floating mb-1 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.target_weight }}
+                    </div>
+                </div>
+                <div class="form-floating mb-3 row justify-content-center">
+                    <div class="col-5">
+                        {{ form_u.time_to_goal }}
+                    </div>
                 </div>
 
 
-                <div class="row m-1">
-                    <button class="btn btn-outline-dark" type="submit">Sign in</button>
+                <div class="container-xxl">
+                    <div class="row justify-content-center"><button class="w-25 btn btn-outline-dark" type="submit">Sign in</button></div>
                 </div>
-            <div class="row m-1">
-                <p class="text-muted mt-1">Have Not an account? <a href="{% url 'register' %}" class="fw-bold text-body"><u>Register Here</u></a></p>
-            </div>
+
         </div>
     </div>
 </form>

@@ -12,7 +12,7 @@ class CreateUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update(
-            {'type': "text", 'class': "form-control", 'id': "id_username", 'placeholder': "username"})
+            {'type': "text", 'class': "form-control", 'id': "id_username", 'placeholder': "Username"})
         self.fields['email'].widget.attrs.update(
             {'type': "email", 'class': "form-control", 'id': "floatingInput", 'placeholder': 'E-Mail'})
         self.fields['password1'].widget.attrs.update(

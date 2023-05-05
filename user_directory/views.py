@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import CreateUserForm, ProfileUpdateForm
@@ -6,10 +7,29 @@ from .models import Profile
 from django.db import transaction
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import TemplateView
+from django.urls import reverse
 
 
 def home(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     return render(request, 'user_directory/home.html')
+
+
+class HomePageView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+    template_name = 'user_directory/home.html'
+
+    def test_func(self):
+        return not self.request.user.is_authenticated
+
+    def handle_no_permission(self):
+        return redirect('home')
+
+
+def about_page(request):
+    return render(request, 'user_directory/about.html')
 
 
 def login_page(request):
@@ -64,3 +84,8 @@ def check_username(request):
         'is_taken': User.objects.filter(username__iexact=username).exists()
     }
     return JsonResponse(data)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
