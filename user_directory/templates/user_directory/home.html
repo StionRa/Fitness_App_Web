@@ -1,1 +1,12 @@
 {% extends 'user_directory/base.html' %}
+{% include 'user_profil/user_profile.html' %}
+
+
+{% block content %}
+  <h1>Welcome to the home page</h1>
+  <!-- Your home page content goes here -->
+{% endblock content %}
+
+{% block user_profile %}
+  {% include 'user_profil/user_profile.html' %}
+{% endblock user_profile %}

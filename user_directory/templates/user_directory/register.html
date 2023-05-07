@@ -23,62 +23,95 @@
 
 
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Usernames should be unique!">
                         {{ form.username }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="A password is a secret string of characters, typically consisting of letters, numbers, and symbols, that is used to verify a user's identity ">
                         {{ form.password1 }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Confirm your password">
                         {{ form.password2 }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="For example, 'username@example.com' is a typical email address format.">
                         {{ form.email }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Your birth day date">
                         {{ form_u.birth_day }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Choice your gender please">
                         {{ form_u.gender }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Your height in metric system, if you have 180 sm. input 1.80 m.">
                         {{ form_u.body_height }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Your weight in kg.">
                         {{ form_u.body_weight }}
                     </div>
                 </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5">
                         {{ form_u.body_type }}
                     </div>
                 </div>
+            <div class="form-floating mb-1 row justify-content-center">
+                <div class="col-xxl-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People with a lean physique, narrow shoulders and hips, long limbs, and low fat mass. They usually have a fast metabolism and difficulty gaining muscle mass.">
+                    <span class="badge text-bg-warning">Ectomorph</span>
+                </div>
+                <div class="col-xxl-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="people with a strong, athletic physique, broad shoulders, narrow hips, and pronounced muscles. They have a fast metabolism and gain muscle mass relatively easily.">
+                    <span class="badge text-bg-warning">Mesomorph</span>
+                </div>
+                <div class="col-xxl-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="people with a plump physique, broad bone structure, round face, and high fat mass. They have a slow metabolism and tend to gain weight.">
+                    <span class="badge text-bg-warning">Endomorph</span>
+                </div>
+            </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5">
                         {{ form_u.activity_level }}
                     </div>
                 </div>
+            <div class="mb-1 row justify-content-center">
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="Patients who are prescribed bed rest, or people who have limited physical activity for medical reasons.">
+                    <span class="badge text-bg-warning">Bed Rest</span>
+                </div>
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People who spend most of their day in a sedentary position, doing minimal physical activity, such as office workers or students.">
+                    <span class="badge text-bg-warning">Sedentary</span>
+                </div>
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People who do light physical activity 1-3 times a week, such as doing yoga, running short distances, or doing household chores.">
+                    <span class="badge text-bg-warning">Light exercise</span>
+                </div>
+            </div>
+            <div class="mb-1 row justify-content-center">
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People who do moderate physical activity 3 to 5 times a week, such as medium-distance running, cardio training, or exercising">
+                    <span class="badge text-bg-warning">Moderate exercise</span>
+                </div>
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People who do vigorous physical activity 6-7 times a week, such as professional athletes or people who do physical labor.">
+                    <span class="badge text-bg-warning">Heavy exercise</span>
+                </div>
+                <div class="col-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="People who do very vigorous physical activity 2 times a day or who exercise very hard, such as highly trained athletes or people in the military.">
+                    <span class="badge text-bg-warning">Very heavy exercise</span>
+                </div>
+            </div>
                 <div class="form-floating mb-1 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="Your target weight">
                         {{ form_u.target_weight }}
                     </div>
                 </div>
                 <div class="form-floating mb-3 row justify-content-center">
-                    <div class="col-5">
+                    <div class="col-xxl-5" data-bs-toggle="tooltip" data-bs-placement="right" title="How many days you have to reach your goals">
                         {{ form_u.time_to_goal }}
                     </div>
                 </div>
@@ -115,5 +148,10 @@
     });
   });
 </script>
-
+<script>
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
 {% endblock content %}

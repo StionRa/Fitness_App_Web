@@ -5,30 +5,32 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleXxl">
-        <ul class="navbar-nav justify-content-end">
+        <div class="collapse navbar-collapse" id="navbarsExampleXxl">
+            <ul class="navbar-nav justify-content-end">
                 {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-body" href="#" id="dropdownXxl" data-bs-toggle="dropdown" aria-expanded="false">User</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownXxl">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">edit Profile</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-                </ul>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link text-body" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-body" href="{% url 'login' %}">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-body" href="{% url 'register' %}">Sign Up</a>
-                </li>
-                {%  endif %}
 
-        </ul>
-      </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-body" href="#" data-bs-toggle="dropdown" aria-expanded="false">User</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">edit Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-body" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-body" href="{% url 'login' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-body" href="{% url 'register' %}">Sign Up</a>
+                    </li>
+                    {%  endif %}
+
+            </ul>
+        </div>
     </div>
   </nav>

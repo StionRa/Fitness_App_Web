@@ -1,0 +1,11 @@
+{% block user_profile %}
+    <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Welcome, {{ user.username }}!</h5>
+            <h6 class="card-subtitle mb-2 text-muted"><a href="{% url 'user_profile' %}">View your profile</a> </h6>
+            <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
+            <a href="#" class="card-link">{{ user.profile.body_weight }}</a>
+            <a href="#" class="card-link">{{ user.profile.body_height }}</a>
+          </div>
+    </div>
+{% endblock user_profile %}
