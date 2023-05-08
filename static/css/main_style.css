@@ -14,9 +14,9 @@ margin: 0;
 body {
 grid-template-areas:
 "header_x"
+"nav_x"
 "article_x"
 "ads_x"
-"nav_x"
 "footer_x";
 grid-template-rows: 80px 10fr 70px 10fr 70px;
 grid-template-columns: 10fr;
@@ -30,7 +30,6 @@ grid-template-columns: 10fr;
 }
 header_x, footer_x, article_x, nav_x, div_x {
 padding: 0;
-background: gold;
 }
 #pageHeader {
 grid-area: header_x;

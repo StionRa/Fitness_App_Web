@@ -1,11 +1,44 @@
 {% block user_profile %}
-    <div class="card" style="width: 18rem;">
+    {% csrf_token %}
+    <div class="card mb-1 mx-auto shadow">
           <div class="card-body">
-            <h5 class="card-title">Welcome, {{ user.username }}!</h5>
-            <h6 class="card-subtitle mb-2 text-muted"><a href="{% url 'user_profile' %}">View your profile</a> </h6>
-            <p class="card-text">Небольшой пример текста, который должен основываться на названии карты и составлять основную часть содержимого карты.</p>
-            <a href="#" class="card-link">{{ user.profile.body_weight }}</a>
-            <a href="#" class="card-link">{{ user.profile.body_height }}</a>
+              <div class="row">
+                  <div class="col-auto">
+                      <img class="rounded-circle account-img border border-3" src="{{ user.profile.image.url }}" style="width: 100px; height: 100px;"/>
+                  </div>
+                  <div class="col-auto">
+                      <div class="row">Level</div>
+                      <div class="row"><h5>Welcome, {{ user.username }}!</h5></div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Age: </div>
+                  <div class="col-auto">{{ user.profile.age }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Height: </div>
+                  <div class="col-auto">{{ user.profile.body_height }} m</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Weight: </div>
+                  <div class="col-auto">{{ user.profile.body_weight }} kg.</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Your type: </div>
+                  <div class="col-auto">{{ user.profile.body_type }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Activity level: </div>
+                  <div class="col-auto">{{ user.profile.activity_level }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Target weight: </div>
+                  <div class="col-auto">{{ user.profile.target_weight }} kg.</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">Time to goal: </div>
+                  <div class="col-auto">{{ user.profile.time_to_goal }} days</div>
+              </div>
           </div>
     </div>
 {% endblock user_profile %}

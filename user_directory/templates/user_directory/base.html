@@ -15,9 +15,10 @@
 
 <header_x id="pageHeader"> {% include 'user_directory/navbar_header.html' %} </header_x>
 <article_x id="mainArticle"> {% block content %}{% endblock content %} </article_x>
-
-<nav_x id="mainNav"> {% block user_profile %}{% endblock user_profile %} </nav_x>
+{% if user.is_authenticated %}
+<nav_x id="mainNav"> {% block user_profile %}{% endblock user_profile %} {% block user_monitoring %}{% endblock user_monitoring %}</nav_x>
 <div_x id="siteAds"> Ads </div_x>
+{% endif %}
 <footer_x id="pageFooter"> {% include 'user_directory/footer_menu.html' %} </footer_x>
 
 

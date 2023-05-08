@@ -55,7 +55,7 @@ class ProfileUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['biography', 'body_height', 'body_weight', 'birth_day', 'gender', 'body_type', 'activity_level',
+        fields = ['image', 'biography', 'body_height', 'body_weight', 'birth_day', 'gender', 'body_type', 'activity_level',
                   'target_weight', 'time_to_goal']
 
     def __init__(self, *args, **kwargs):

@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+
+import user_monitoring.views
 from .forms import CreateUserForm, ProfileUpdateForm
 from .models import Profile
 from django.db import transaction
@@ -9,7 +10,6 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import TemplateView
-from django.urls import reverse
 
 
 def home(request):
@@ -40,6 +40,7 @@ def login_page(request):
         if user is not None:
             login(request, user)
             messages.success(request, f' wellcome {username} !!')
+            user_monitoring.views.calculate(request)
             return redirect('home')
         else:
             messages.info(request, f'account done not exit plz sign in')

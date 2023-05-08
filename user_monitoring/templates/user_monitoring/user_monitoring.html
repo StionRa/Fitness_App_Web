@@ -1,0 +1,21 @@
+{% block user_monitoring %}
+    {% csrf_token %}
+    <div class="card mb-1 mx-auto shadow">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-auto">
+                      <div class="row"><h5>Welcome, {{ user.username }}!</h5></div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">BMI: </div>
+                  <div class="col-auto">{{ user.profile.bmi }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-auto">BMR: </div>
+                  <div class="col-auto">{{ user.profile.bmr }}</div>
+              </div>
+
+          </div>
+    </div>
+{% endblock user_monitoring %}

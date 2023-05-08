@@ -1,12 +1,13 @@
 {% extends 'user_directory/base.html' %}
-{% include 'user_profil/user_profile.html' %}
-
-
+{% csrf_token %}
 {% block content %}
   <h1>Welcome to the home page</h1>
   <!-- Your home page content goes here -->
 {% endblock content %}
 
 {% block user_profile %}
-  {% include 'user_profil/user_profile.html' %}
+    {% include 'user_profil/user_profile.html' %}
 {% endblock user_profile %}
+{% block user_monitoring %}
+    {% include "user_monitoring/user_monitoring.html"%}
+{% endblock user_monitoring %}
